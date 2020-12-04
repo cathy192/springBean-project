@@ -23,7 +23,6 @@ public class ApplicationContextBasicFIndTest {
         System.out.println("memberService = " + memberService.getClass());
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
-
     @Test
     @DisplayName("이름 없이 타입으로만 조회")
     void findBeadnByType(){
@@ -36,12 +35,10 @@ public class ApplicationContextBasicFIndTest {
         MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
-
     @Test
     @DisplayName("빈 이름으로 조회x")
     void findBeadnByNameX(){
         //없는 빈 검색
-
         //MemberService xxxx = ac.getBean("xxxx", MemberService.class);
         assertThrows(NoSuchBeanDefinitionException.class,
                 () -> ac.getBean("xxxx",MemberService.class));
