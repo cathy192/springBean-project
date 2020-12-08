@@ -16,15 +16,19 @@ import org.springframework.context.annotation.Configuration;
 public class Appconfig {
     @Bean
     public MemberService memberService(){
+        //soutm
+        System.out.println("Call Appconfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
     @Bean
     public MemberRepository memberRepository() {
         //인터페이스를 반환해주는 역활
+        System.out.println("Call Appconfig.memberRepository");
         return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("Call Appconfig.orderService");
         return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
     @Bean
@@ -32,4 +36,7 @@ public class Appconfig {
         //인터페이스를 반환해주는 역활
         return new RateDiscountPolicy();
     }
-}
+
+
+    }
+
